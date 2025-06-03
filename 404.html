@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сторінку не знайдено - Carlogy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #5eead4;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            min-height: 100vh;
+            color: var(--light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .error-icon {
+            font-size: 5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .error-code {
+            font-size: 6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #4f46e5, #5eead4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(94, 234, 212, 0.2);
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-home {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+        }
+    </style>
+    <script>
+        // Redirect to homepage if needed
+        document.addEventListener('DOMContentLoaded', function() {
+            // If it's a GitHub Pages 404, try to handle known routes
+            const path = window.location.pathname;
+            
+            // GitHub Pages base path detection
+            var basePath = '';
+            var ghPagesRegex = /^https?:\/\/([^\.]+)\.github\.io\/([^\/]+)/;
+            var match = window.location.href.match(ghPagesRegex);
+            if (match) {
+                // Running on GitHub Pages, match[2] is the repository name
+                basePath = '/' + match[2];
+                console.log('Running on GitHub Pages with base path:', basePath);
+            } else {
+                console.log('Not running on GitHub Pages, using empty base path');
+            }
+            
+            // Remove the repo name if on GitHub Pages
+            let cleanPath = path;
+            
+            if (path.startsWith(basePath)) {
+                cleanPath = path.substring(basePath.length);
+            }
+            
+            // Known routes that should exist
+            const knownRoutes = [
+                '/index.html',
+                '/',
+                '/business/',
+                '/business/index.html',
+                '/insurance/',
+                '/insurance/index.html'
+            ];
+            
+            // Debug info
+            console.log('404 Debug - Path:', path);
+            console.log('404 Debug - Clean Path:', cleanPath);
+            console.log('404 Debug - Base Path:', basePath);
+            
+            // Special handling for direct access to business and insurance directories
+            if (path.includes('/business') || cleanPath.includes('/business')) {
+                const correctedPath = window.location.origin + basePath + '/business/index.html';
+                console.log('404 Debug - Redirecting to:', correctedPath);
+                window.location.replace(correctedPath);
+                return;
+            }
+            
+            if (path.includes('/insurance') || cleanPath.includes('/insurance')) {
+                const correctedPath = window.location.origin + basePath + '/insurance/index.html';
+                console.log('404 Debug - Redirecting to:', correctedPath);
+                window.location.replace(correctedPath);
+                return;
+            }
+            
+            // General path handling
+            if (knownRoutes.includes(cleanPath)) {
+                // Try to correct the path
+                let correctedPath = '';
+                
+                if (cleanPath === '/business/' || cleanPath === '/business/index.html') {
+                    correctedPath = window.location.origin + basePath + '/business/index.html';
+                } else if (cleanPath === '/insurance/' || cleanPath === '/insurance/index.html') {
+                    correctedPath = window.location.origin + basePath + '/insurance/index.html';
+                } else {
+                    correctedPath = window.location.origin + basePath + '/index.html';
+                }
+                
+                console.log('404 Debug - Redirecting to known route:', correctedPath);
+                window.location.replace(correctedPath);
+            }
+            
+            // Update home button with base path
+            const homeBtn = document.querySelector('.btn-home');
+            if (homeBtn) {
+                if (basePath) {
+                    homeBtn.href = basePath + '/index.html';
+                } else {
+                    homeBtn.href = 'index.html';
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="error-icon">
+            <i class="fas fa-car-crash"></i>
+        </div>
+        <h1 class="error-code">404</h1>
+        <p class="error-message">Упс! Сторінку не знайдено.</p>
+        <p>Схоже, ми не змогли знайти сторінку, яку ви шукаєте.</p>
+        <a href="/" class="btn-home">
+            <i class="fas fa-home"></i> Повернутися на головну
+        </a>
+    </div>
+</body>
+</html>

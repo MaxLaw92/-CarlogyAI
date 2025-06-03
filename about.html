@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Про нас - Carlogy</title>
+    <meta name="description" content="Дізнайтеся більше про Carlogy - інноваційну компанію, що розробляє інтелектуальну діагностику автомобілів на основі штучного інтелекту.">
+    <meta name="keywords" content="про Carlogy, штучний інтелект, діагностика автомобілів, команда, історія компанії">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #5eead4;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-800: #1f2937;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            min-height: 100vh;
+            color: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .header-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-container {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-link {
+            padding: 8px 15px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            background: rgba(79, 70, 229, 0.2);
+            border: 1px solid rgba(94, 234, 212, 0.3);
+        }
+        
+        .nav-link i {
+            color: var(--secondary);
+        }
+        
+        .language-selector {
+            display: flex;
+            gap: 5px;
+            margin-left: 20px;
+        }
+        
+        .lang-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-300);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .lang-btn.active {
+            background: rgba(79, 70, 229, 0.2);
+            border: 1px solid rgba(94, 234, 212, 0.3);
+            color: white;
+        }
+
+        .car-logo {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #4f46e5, #5eead4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(94, 234, 212, 0.2);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* About Page Specific Styles */
+        .about-hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #4f46e5, #5eead4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-300);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-300);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .vision-mission {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--secondary);
+        }
+
+        .card-content {
+            font-size: 1.1rem;
+            color: var(--gray-300);
+            line-height: 1.8;
+        }
+
+        .timeline {
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin-bottom: 60px;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 30px;
+            margin-left: 50%;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 500px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: 0;
+            right: -10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            width: 80px;
+            height: 40px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            transform: translateX(100%);
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            right: auto;
+            left: -10px;
+            transform: translateX(-100%);
+        }
+
+        .timeline-marker {
+            position: absolute;
+            top: 10px;
+            right: -7px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--secondary);
+            transform: translateX(100%);
+        }
+
+        .timeline-item:nth-child(even) .timeline-marker {
+            right: auto;
+            left: -7px;
+            transform: translateX(-100%);
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .timeline-text {
+            font-size: 1rem;
+            color: var(--gray-300);
+            line-height: 1.6;
+        }
+
+        .team-section {
+            margin: 60px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.3), rgba(94, 234, 212, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-photo-placeholder {
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .team-info {
+            padding: 20px;
+        }
+
+        .team-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .team-position {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .team-bio {
+            font-size: 0.9rem;
+            color: var(--gray-300);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .team-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .team-social-link {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-300);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .team-social-link:hover {
+            background: rgba(94, 234, 212, 0.1);
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .values-section {
+            margin: 60px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .value-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .value-text {
+            font-size: 1rem;
+            color: var(--gray-300);
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(94, 234, 212, 0.2));
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            margin: 60px 0;
+            border: 1px solid rgba(94, 234, 212, 0.3);
+        }
+
+        .cta-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            color: var(--gray-300);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .vision-mission {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 0;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-right: 0;
+                padding-left: 50px;
+                justify-content: flex-start;
+            }
+            
+            .timeline-item:nth-child(even) {
+                margin-left: 0;
+                padding-left: 50px;
+            }
+            
+            .timeline-year {
+                right: auto;
+                left: 50px;
+                transform: none;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-year {
+                left: 50px;
+                transform: none;
+            }
+            
+            .timeline-marker {
+                right: auto;
+                left: 0;
+                transform: none;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-marker {
+                left: 0;
+                transform: none;
+            }
+            
+            .about-title {
+                font-size: 2.5rem;
+            }
+            
+            .cta-section {
+                padding: 30px;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header fade-in-up">
+            <div class="header-container">
+                <div class="logo-container">
+                    <div class="car-logo"><i class="fas fa-car"></i></div>
+                    <h1 class="logo-text">Carlogy</h1>
+                </div>
+                <div class="nav-container">
+                    <a href="./index.html" class="nav-link" id="client-link">
+                        <i class="fas fa-car"></i>
+                        <span>Для водіїв</span>
+                    </a>
+                    <a href="./business.html" class="nav-link" id="business-link">
+                        <i class="fas fa-tools"></i>
+                        <span>Для бізнесу</span>
+                    </a>
+                    <a href="./insurance.html" class="nav-link" id="insurance-link">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Для страхових</span>
+                    </a>
+                    <a href="./about.html" class="nav-link active" id="about-link">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Про нас</span>
+                    </a>
+                    <a href="./contacts.html" class="nav-link" id="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Контакти</span>
+                    </a>
+                    <div class="language-selector">
+                        <button class="lang-btn" id="uk-btn" onclick="setLanguage('uk')">UK</button>
+                        <button class="lang-btn" id="en-btn" onclick="setLanguage('en')">EN</button>
+                        <button class="lang-btn" id="cs-btn" onclick="setLanguage('cs')">CS</button>
+                    </div>
+                </div>
+            </div>
+            <p class="tagline" id="tagline">Наша місія, команда та історія</p>
+        </header>
+
+        <div class="about-hero fade-in-up delay-200">
+            <h1 class="about-title" id="about-title">Про компанію Carlogy</h1>
+            <p class="about-subtitle" id="about-subtitle">Ми розробляємо інноваційні рішення для діагностики автомобілів на основі штучного інтелекту. Наша мета - зробити діагностику автомобілів більш доступною, швидкою та точною.</p>
+        </div>
+
+        <div class="vision-mission">
+            <div class="card fade-in-left delay-300">
+                <h2 class="card-title" id="vision-title">Наше бачення</h2>
+                <p class="card-content" id="vision-content">Ми прагнемо створити світ, де кожен автомобіліст має миттєвий доступ до точної діагностики свого автомобіля. Наше бачення - революціонізувати автомобільну галузь, зробивши інтелектуальну діагностику доступною для всіх, незалежно від технічних знань чи бюджету.</p>
+            </div>
+            
+            <div class="card fade-in-right delay-400">
+                <h2 class="card-title" id="mission-title">Наша місія</h2>
+                <p class="card-content" id="mission-content">Наша місія полягає в демократизації діагностики автомобілів через застосування найсучасніших технологій штучного інтелекту. Ми прагнемо збільшити безпеку на дорогах, зменшити витрати на ремонт та покращити досвід володіння автомобілем для мільйонів людей по всьому світу.</p>
+            </div>
+        </div>
+
+        <div class="values-section fade-in-up delay-300">
+            <h2 class="section-title" id="values-title">Наші цінності</h2>
+            <p class="section-subtitle" id="values-subtitle">Принципи, якими ми керуємося у нашій роботі</p>
+            
+            <div class="values-grid stagger-list">
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3 class="value-title" id="value-1-title">Інновації</h3>
+                    <p class="value-text" id="value-1-text">Ми постійно шукаємо нові способи використання технологій для вирішення складних проблем. Інновації - це наша рушійна сила.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="value-title" id="value-2-title">Надійність</h3>
+                    <p class="value-text" id="value-2-text">Наші користувачі покладаються на нашу платформу для прийняття важливих рішень. Ми прагнемо забезпечити найвищий рівень точності та надійності.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-users"></i></div>
+                    <h3 class="value-title" id="value-3-title">Клієнтоорієнтованість</h3>
+                    <p class="value-text" id="value-3-text">Ми ставимо потреби наших клієнтів на перше місце і постійно вдосконалюємо наші послуги на основі їхніх відгуків.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-globe"></i></div>
+                    <h3 class="value-title" id="value-4-title">Доступність</h3>
+                    <p class="value-text" id="value-4-text">Ми віримо, що передова технологія діагностики повинна бути доступною для кожного, незалежно від місця проживання чи рівня доходу.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-section fade-in-up delay-300">
+            <h2 class="section-title" id="history-title">Наша історія</h2>
+            <p class="section-subtitle" id="history-subtitle">Шлях від ідеї до лідера ринку інтелектуальної діагностики</p>
+            
+            <div class="timeline">
+                <div class="timeline-item fade-in-right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title" id="timeline-1-title">Заснування компанії</h3>
+                        <p class="timeline-text" id="timeline-1-text">Carlogy була заснована трьома інженерами з автомобільної та ІТ-галузей, які об'єднали свої знання та досвід для створення нового підходу до діагностики автомобілів.</p>
+                    </div>
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-marker"></div>
+                </div>
+                
+                <div class="timeline-item fade-in-left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title" id="timeline-2-title">Перший прототип</h3>
+                        <p class="timeline-text" id="timeline-2-text">Після року інтенсивних розробок, ми створили перший прототип нашої системи діагностики, яка могла розпізнавати основні несправності двигуна за звуком.</p>
+                    </div>
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-marker"></div>
+                </div>
+                
+                <div class="timeline-item fade-in-right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title" id="timeline-3-title">Запуск продукту</h3>
+                        <p class="timeline-text" id="timeline-3-text">Офіційний запуск платформи Carlogy для кінцевих користувачів. За перший місяць нашими послугами скористалися понад 5000 автомобілістів.</p>
+                    </div>
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-marker"></div>
+                </div>
+                
+                <div class="timeline-item fade-in-left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title" id="timeline-4-title">Бізнес-рішення</h3>
+                        <p class="timeline-text" id="timeline-4-text">Запуск рішень для автосервісів та страхових компаній. Партнерство з 50+ СТО та 3 великими страховими компаніями.</p>
+                    </div>
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-marker"></div>
+                </div>
+                
+                <div class="timeline-item fade-in-right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title" id="timeline-5-title">Міжнародна експансія</h3>
+                        <p class="timeline-text" id="timeline-5-text">Вихід на міжнародний ринок. Відкриття представництв у 5 європейських країнах та запуск багатомовної платформи.</p>
+                    </div>
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-marker"></div>
+                </div>
+                
+                <div class="timeline-item fade-in-left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title" id="timeline-6-title">Сьогодні</h3>
+                        <p class="timeline-text" id="timeline-6-text">Сьогодні Carlogy - це команда з 50+ фахівців, яка обслуговує понад 100 000 користувачів щомісяця та постійно вдосконалює технологію ШІ для діагностики автомобілів.</p>
+                    </div>
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-marker"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-section fade-in-up delay-300">
+            <h2 class="section-title" id="team-title">Наша команда</h2>
+            <p class="section-subtitle" id="team-subtitle">Познайомтеся з експертами, які стоять за Carlogy</p>
+            
+            <div class="team-grid stagger-list">
+                <div class="team-member">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Олександр Петренко</h3>
+                        <div class="team-position" id="team-1-position">Співзасновник та CEO</div>
+                        <p class="team-bio" id="team-1-bio">15+ років досвіду в автомобільній індустрії. Раніше керував сервісним центром преміум марок та розробляв діагностичне обладнання.</p>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="team-social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Ірина Ковальчук</h3>
+                        <div class="team-position" id="team-2-position">Співзасновниця та CTO</div>
+                        <p class="team-bio" id="team-2-bio">PhD в галузі штучного інтелекту. Спеціалізується на машинному навчанні та розпізнаванні образів. Раніше працювала в Google AI.</p>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="team-social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Михайло Сидоренко</h3>
+                        <div class="team-position" id="team-3-position">Співзасновник та COO</div>
+                        <p class="team-bio" id="team-3-bio">Серійний підприємець з 10+ років досвіду. Раніше заснував та успішно продав дві технологічні компанії в галузі автомобільної діагностики.</p>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="team-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <div class="team-photo-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Наталія Зінченко</h3>
+                        <div class="team-position" id="team-4-position">Керівник відділу продажів</div>
+                        <p class="team-bio" id="team-4-bio">12+ років у B2B продажах технологічних рішень. Експерт з розвитку партнерських відносин з автосервісами та страховими компаніями.</p>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="team-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section fade-in-up delay-400">
+            <h2 class="cta-title" id="cta-title">Станьте частиною нашої історії</h2>
+            <p class="cta-text" id="cta-text">Приєднуйтесь до нашої місії з революціонізації автомобільної діагностики. Ми завжди відкриті для нових партнерств, талантів та ідей.</p>
+            <a href="./contacts.html" class="cta-btn">
+                <i class="fas fa-envelope"></i>
+                <span id="cta-btn-text">Зв'язатися з нами</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer fade-in-up delay-500">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <i class="fas fa-car footer-logo-icon"></i>
+                    <span class="footer-logo-text">Carlogy</span>
+                </div>
+                <p class="footer-description" id="footer-description">
+                    Інноваційна платформа для діагностики автомобілів з використанням штучного інтелекту. Ми робимо діагностику швидшою, точнішою та доступнішою для всіх.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title" id="footer-services">Послуги</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="./index.html"><i class="fas fa-car"></i><span id="footer-drivers">Для водіїв</span></a></li>
+                    <li class="footer-link"><a href="./business.html"><i class="fas fa-tools"></i><span id="footer-business">Для СТО</span></a></li>
+                    <li class="footer-link"><a href="./insurance.html"><i class="fas fa-shield-alt"></i><span id="footer-insurance">Для страхових</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title" id="footer-company">Компанія</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="./about.html"><i class="fas fa-info-circle"></i><span id="footer-about">Про нас</span></a></li>
+                    <li class="footer-link"><a href="./contacts.html"><i class="fas fa-envelope"></i><span id="footer-contacts">Контакти</span></a></li>
+                    <li class="footer-link"><a href="#"><i class="fas fa-users"></i><span id="footer-careers">Кар'єра</span></a></li>
+                    <li class="footer-link"><a href="#"><i class="fas fa-newspaper"></i><span id="footer-news">Новини</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title" id="footer-newsletter">Підписка на новини</h3>
+                <p class="footer-description" id="footer-newsletter-text">
+                    Отримуйте останні новини та оновлення про нові функції Carlogy.
+                </p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Ваш email" id="newsletter-placeholder">
+                    <button type="submit" class="newsletter-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 <a href="/">Carlogy</a>. <span id="footer-rights">Всі права захищені.</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Current language
+        let currentLang = localStorage.getItem('carlogy-lang') || 'uk';
+        
+        // GitHub Pages base path
+        var basePath = '';
+
+        // Detect if running on GitHub Pages and get the repository name
+        (function() {
+            var ghPagesRegex = /^https?:\/\/([^\.]+)\.github\.io\/([^\/]+)/;
+            var match = window.location.href.match(ghPagesRegex);
+            if (match) {
+                basePath = '/' + match[2];
+                console.log('Running on GitHub Pages with base path:', basePath);
+            } else {
+                console.log('Not running on GitHub Pages, using empty base path');
+            }
+        })();
+        
+        // Translations
+        const translations = {
+            uk: {
+                'tagline': 'Наша місія, команда та історія',
+                'client-link': 'Для водіїв',
+                'business-link': 'Для бізнесу', 
+                'insurance-link': 'Для страхових',
+                'about-link': 'Про нас',
+                'contact-link': 'Контакти',
+                'about-title': 'Про компанію Carlogy',
+                'about-subtitle': 'Ми розробляємо інноваційні рішення для діагностики автомобілів на основі штучного інтелекту. Наша мета - зробити діагностику автомобілів більш доступною, швидкою та точною.',
+                'vision-title': 'Наше бачення',
+                'vision-content': 'Ми прагнемо створити світ, де кожен автомобіліст має миттєвий доступ до точної діагностики свого автомобіля. Наше бачення - революціонізувати автомобільну галузь, зробивши інтелектуальну діагностику доступною для всіх, незалежно від технічних знань чи бюджету.',
+                'mission-title': 'Наша місія',
+                'mission-content': 'Наша місія полягає в демократизації діагностики автомобілів через застосування найсучасніших технологій штучного інтелекту. Ми прагнемо збільшити безпеку на дорогах, зменшити витрати на ремонт та покращити досвід володіння автомобілем для мільйонів людей по всьому світу.',
+                'values-title': 'Наші цінності',
+                'values-subtitle': 'Принципи, якими ми керуємося у нашій роботі',
+                'value-1-title': 'Інновації',
+                'value-1-text': 'Ми постійно шукаємо нові способи використання технологій для вирішення складних проблем. Інновації - це наша рушійна сила.',
+                'value-2-title': 'Надійність',
+                'value-2-text': 'Наші користувачі покладаються на нашу платформу для прийняття важливих рішень. Ми прагнемо забезпечити найвищий рівень точності та надійності.',
+                'value-3-title': 'Клієнтоорієнтованість',
+                'value-3-text': 'Ми ставимо потреби наших клієнтів на перше місце і постійно вдосконалюємо наші послуги на основі їхніх відгуків.',
+                'value-4-title': 'Доступність',
+                'value-4-text': 'Ми віримо, що передова технологія діагностики повинна бути доступною для кожного, незалежно від місця проживання чи рівня доходу.',
+                'history-title': 'Наша історія',
+                'history-subtitle': 'Шлях від ідеї до лідера ринку інтелектуальної діагностики',
+                'timeline-1-title': 'Заснування компанії',
+                'timeline-1-text': 'Carlogy була заснована трьома інженерами з автомобільної та ІТ-галузей, які об\'єднали свої знання та досвід для створення нового підходу до діагностики автомобілів.',
+                'timeline-2-title': 'Перший прототип',
+                'timeline-2-text': 'Після року інтенсивних розробок, ми створили перший прототип нашої системи діагностики, яка могла розпізнавати основні несправності двигуна за звуком.',
+                'timeline-3-title': 'Запуск продукту',
+                'timeline-3-text': 'Офіційний запуск платформи Carlogy для кінцевих користувачів. За перший місяць нашими послугами скористалися понад 5000 автомобілістів.',
+                'timeline-4-title': 'Бізнес-рішення',
+                'timeline-4-text': 'Запуск рішень для автосервісів та страхових компаній. Партнерство з 50+ СТО та 3 великими страховими компаніями.',
+                'timeline-5-title': 'Міжнародна експансія',
+                'timeline-5-text': 'Вихід на міжнародний ринок. Відкриття представництв у 5 європейських країнах та запуск багатомовної платформи.',
+                'timeline-6-title': 'Сьогодні',
+                'timeline-6-text': 'Сьогодні Carlogy - це команда з 50+ фахівців, яка обслуговує понад 100 000 користувачів щомісяця та постійно вдосконалює технологію ШІ для діагностики автомобілів.',
+                'team-title': 'Наша команда',
+                'team-subtitle': 'Познайомтеся з експертами, які стоять за Carlogy',
+                'team-1-position': 'Співзасновник та CEO',
+                'team-1-bio': '15+ років досвіду в автомобільній індустрії. Раніше керував сервісним центром преміум марок та розробляв діагностичне обладнання.',
+                'team-2-position': 'Співзасновниця та CTO',
+                'team-2-bio': 'PhD в галузі штучного інтелекту. Спеціалізується на машинному навчанні та розпізнаванні образів. Раніше працювала в Google AI.',
+                'team-3-position': 'Співзасновник та COO',
+                'team-3-bio': 'Серійний підприємець з 10+ років досвіду. Раніше заснував та успішно продав дві технологічні компанії в галузі автомобільної діагностики.',
+                'team-4-position': 'Керівник відділу продажів',
+                'team-4-bio': '12+ років у B2B продажах технологічних рішень. Експерт з розвитку партнерських відносин з автосервісами та страховими компаніями.',
+                'cta-title': 'Станьте частиною нашої історії',
+                'cta-text': 'Приєднуйтесь до нашої місії з революціонізації автомобільної діагностики. Ми завжди відкриті для нових партнерств, талантів та ідей.',
+                'cta-btn-text': 'Зв\'язатися з нами',
+                'footer-description': 'Інноваційна платформа для діагностики автомобілів з використанням штучного інтелекту. Ми робимо діагностику швидшою, точнішою та доступнішою для всіх.',
+                'footer-services': 'Послуги',
+                'footer-drivers': 'Для водіїв',
+                'footer-business': 'Для СТО',
+                'footer-insurance': 'Для страхових',
+                'footer-company': 'Компанія',
+                'footer-about': 'Про нас',
+                'footer-contacts': 'Контакти',
+                'footer-careers': 'Кар\'єра',
+                'footer-news': 'Новини',
+                'footer-newsletter': 'Підписка на новини',
+                'footer-newsletter-text': 'Отримуйте останні новини та оновлення про нові функції Carlogy.',
+                'newsletter-placeholder': 'Ваш email',
+                'footer-rights': 'Всі права захищені.'
+            },
+            en: {
+                'tagline': 'Our mission, team and history',
+                'client-link': 'For Drivers',
+                'business-link': 'For Business',
+                'insurance-link': 'For Insurance',
+                'about-link': 'About Us',
+                'contact-link': 'Contact',
+                'about-title': 'About Carlogy',
+                'about-subtitle': 'We develop innovative solutions for car diagnostics based on artificial intelligence. Our goal is to make car diagnostics more accessible, faster and more accurate.',
+                'vision-title': 'Our Vision',
+                'vision-content': 'We strive to create a world where every motorist has instant access to accurate diagnostics of their car. Our vision is to revolutionize the automotive industry by making intelligent diagnostics accessible to everyone, regardless of technical knowledge or budget.',
+                'mission-title': 'Our Mission',
+                'mission-content': 'Our mission is to democratize car diagnostics through the application of cutting-edge artificial intelligence technologies. We aim to increase road safety, reduce repair costs, and improve the car ownership experience for millions of people around the world.',
+                'values-title': 'Our Values',
+                'values-subtitle': 'Principles that guide us in our work',
+                'value-1-title': 'Innovation',
+                'value-1-text': 'We are constantly looking for new ways to use technology to solve complex problems. Innovation is our driving force.',
+                'value-2-title': 'Reliability',
+                'value-2-text': 'Our users rely on our platform to make important decisions. We strive to ensure the highest level of accuracy and reliability.',
+                'value-3-title': 'Customer Focus',
+                'value-3-text': 'We put our clients\' needs first and constantly improve our services based on their feedback.',
+                'value-4-title': 'Accessibility',
+                'value-4-text': 'We believe that advanced diagnostic technology should be accessible to everyone, regardless of where they live or their income level.',
+                'history-title': 'Our History',
+                'history-subtitle': 'The journey from idea to market leader in intelligent diagnostics',
+                'timeline-1-title': 'Company Founding',
+                'timeline-1-text': 'Carlogy was founded by three engineers from the automotive and IT industries who combined their knowledge and experience to create a new approach to car diagnostics.',
+                'timeline-2-title': 'First Prototype',
+                'timeline-2-text': 'After a year of intensive development, we created the first prototype of our diagnostic system, which could recognize basic engine malfunctions by sound.',
+                'timeline-3-title': 'Product Launch',
+                'timeline-3-text': 'Official launch of the Carlogy platform for end users. In the first month, more than 5,000 motorists used our services.',
+                'timeline-4-title': 'Business Solutions',
+                'timeline-4-text': 'Launch of solutions for auto services and insurance companies. Partnership with 50+ auto services and 3 major insurance companies.',
+                'timeline-5-title': 'International Expansion',
+                'timeline-5-text': 'Entering the international market. Opening offices in 5 European countries and launching a multilingual platform.',
+                'timeline-6-title': 'Today',
+                'timeline-6-text': 'Today, Carlogy is a team of 50+ specialists serving over 100,000 users monthly and constantly improving AI technology for car diagnostics.',
+                'team-title': 'Our Team',
+                'team-subtitle': 'Meet the experts behind Carlogy',
+                'team-1-position': 'Co-founder and CEO',
+                'team-1-bio': '15+ years of experience in the automotive industry. Previously managed a premium brand service center and developed diagnostic equipment.',
+                'team-2-position': 'Co-founder and CTO',
+                'team-2-bio': 'PhD in artificial intelligence. Specializes in machine learning and pattern recognition. Previously worked at Google AI.',
+                'team-3-position': 'Co-founder and COO',
+                'team-3-bio': 'Serial entrepreneur with 10+ years of experience. Previously founded and successfully sold two technology companies in the automotive diagnostics industry.',
+                'team-4-position': 'Head of Sales',
+                'team-4-bio': '12+ years in B2B sales of technology solutions. Expert in developing partnerships with auto services and insurance companies.',
+                'cta-title': 'Become Part of Our Story',
+                'cta-text': 'Join our mission to revolutionize automotive diagnostics. We are always open to new partnerships, talents, and ideas.',
+                'cta-btn-text': 'Contact Us',
+                'footer-description': 'Innovative platform for car diagnostics using artificial intelligence. We make diagnostics faster, more accurate and accessible to everyone.',
+                'footer-services': 'Services',
+                'footer-drivers': 'For Drivers',
+                'footer-business': 'For Auto Service',
+                'footer-insurance': 'For Insurance',
+                'footer-company': 'Company',
+                'footer-about': 'About Us',
+                'footer-contacts': 'Contact',
+                'footer-careers': 'Careers',
+                'footer-news': 'News',
+                'footer-newsletter': 'Newsletter',
+                'footer-newsletter-text': 'Get the latest news and updates about new Carlogy features.',
+                'newsletter-placeholder': 'Your email',
+                'footer-rights': 'All rights reserved.'
+            },
+            cs: {
+                'tagline': 'Naše mise, tým a historie',
+                'client-link': 'Pro řidiče',
+                'business-link': 'Pro firmy',
+                'insurance-link': 'Pro pojišťovny',
+                'about-link': 'O nás',
+                'contact-link': 'Kontakt',
+                'about-title': 'O společnosti Carlogy',
+                'about-subtitle': 'Vyvíjíme inovativní řešení pro diagnostiku automobilů založené na umělé inteligenci. Naším cílem je učinit diagnostiku automobilů dostupnější, rychlejší a přesnější.',
+                'vision-title': 'Naše vize',
+                'vision-content': 'Usilujeme o vytvoření světa, kde má každý motorista okamžitý přístup k přesné diagnostice svého vozu. Naší vizí je revolucionizovat automobilový průmysl tím, že zpřístupníme inteligentní diagnostiku každému, bez ohledu na technické znalosti či rozpočet.',
+                'mission-title': 'Naše mise',
+                'mission-content': 'Naší misí je demokratizovat diagnostiku automobilů prostřednictvím aplikace nejmodernějších technologií umělé inteligence. Naším cílem je zvýšit bezpečnost na silnicích, snížit náklady na opravy a zlepšit zkušenost s vlastnictvím automobilu pro miliony lidí po celém světě.',
+                'values-title': 'Naše hodnoty',
+                'values-subtitle': 'Principy, kterými se řídíme v naší práci',
+                'value-1-title': 'Inovace',
+                'value-1-text': 'Neustále hledáme nové způsoby využití technologií k řešení složitých problémů. Inovace jsou naší hnací silou.',
+                'value-2-title': 'Spolehlivost',
+                'value-2-text': 'Naši uživatelé se spoléhají na naši platformu při důležitých rozhodnutích. Snažíme se zajistit nejvyšší úroveň přesnosti a spolehlivosti.',
+                'value-3-title': 'Orientace na zákazníka',
+                'value-3-text': 'Potřeby našich klientů stavíme na první místo a neustále zlepšujeme naše služby na základě jejich zpětné vazby.',
+                'value-4-title': 'Dostupnost',
+                'value-4-text': 'Věříme, že pokročilá diagnostická technologie by měla být dostupná každému, bez ohledu na to, kde žije nebo jaká je jeho úroveň příjmu.',
+                'history-title': 'Naše historie',
+                'history-subtitle': 'Cesta od nápadu k lídrovi na trhu v inteligentní diagnostice',
+                'timeline-1-title': 'Založení společnosti',
+                'timeline-1-text': 'Carlogy byla založena třemi inženýry z automobilového a IT průmyslu, kteří spojili své znalosti a zkušenosti k vytvoření nového přístupu k diagnostice automobilů.',
+                'timeline-2-title': 'První prototyp',
+                'timeline-2-text': 'Po roce intenzivního vývoje jsme vytvořili první prototyp našeho diagnostického systému, který dokázal rozpoznávat základní poruchy motoru podle zvuku.',
+                'timeline-3-title': 'Spuštění produktu',
+                'timeline-3-text': 'Oficiální spuštění platformy Carlogy pro koncové uživatele. V prvním měsíci využilo naše služby více než 5 000 motoristů.',
+                'timeline-4-title': 'Řešení pro firmy',
+                'timeline-4-text': 'Spuštění řešení pro autoservisy a pojišťovny. Partnerství s 50+ autoservisy a 3 velkými pojišťovnami.',
+                'timeline-5-title': 'Mezinárodní expanze',
+                'timeline-5-text': 'Vstup na mezinárodní trh. Otevření poboček v 5 evropských zemích a spuštění vícejazyčné platformy.',
+                'timeline-6-title': 'Dnes',
+                'timeline-6-text': 'Dnes je Carlogy tým 50+ odborníků, který měsíčně obsluhuje více než 100 000 uživatelů a neustále vylepšuje technologii umělé inteligence pro diagnostiku automobilů.',
+                'team-title': 'Náš tým',
+                'team-subtitle': 'Poznejte odborníky, kteří stojí za Carlogy',
+                'team-1-position': 'Spoluzakladatel a CEO',
+                'team-1-bio': '15+ let zkušeností v automobilovém průmyslu. Dříve řídil servisní centrum prémiových značek a vyvíjel diagnostické vybavení.',
+                'team-2-position': 'Spoluzakladatelka a CTO',
+                'team-2-bio': 'PhD v oblasti umělé inteligence. Specializuje se na strojové učení a rozpoznávání vzorů. Dříve pracovala v Google AI.',
+                'team-3-position': 'Spoluzakladatel a COO',
+                'team-3-bio': 'Sériový podnikatel s 10+ lety zkušeností. Dříve založil a úspěšně prodal dvě technologické společnosti v oblasti automobilové diagnostiky.',
+                'team-4-position': 'Vedoucí prodeje',
+                'team-4-bio': '12+ let v B2B prodeji technologických řešení. Odborník na rozvoj partnerství s autoservisy a pojišťovnami.',
+                'cta-title': 'Staňte se součástí našeho příběhu',
+                'cta-text': 'Připojte se k naší misi revolucionizovat automobilovou diagnostiku. Jsme vždy otevřeni novým partnerstvím, talentům a nápadům.',
+                'cta-btn-text': 'Kontaktujte nás',
+                'footer-description': 'Inovativní platforma pro diagnostiku vozidel pomocí umělé inteligence. Děláme diagnostiku rychlejší, přesnější a dostupnější pro všechny.',
+                'footer-services': 'Služby',
+                'footer-drivers': 'Pro řidiče',
+                'footer-business': 'Pro autoservisy',
+                'footer-insurance': 'Pro pojišťovny',
+                'footer-company': 'Společnost',
+                'footer-about': 'O nás',
+                'footer-contacts': 'Kontakt',
+                'footer-careers': 'Kariéra',
+                'footer-news': 'Novinky',
+                'footer-newsletter': 'Newsletter',
+                'footer-newsletter-text': 'Získejte nejnovější zprávy a aktualizace o nových funkcích Carlogy.',
+                'newsletter-placeholder': 'Váš email',
+                'footer-rights': 'Všechna práva vyhrazena.'
+            }
+        };
+        
+        // Function to set language
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('carlogy-lang', lang);
+            
+            // Update active state for language buttons
+            document.getElementById('uk-btn').classList.toggle('active', lang === 'uk');
+            document.getElementById('en-btn').classList.toggle('active', lang === 'en');
+            document.getElementById('cs-btn').classList.toggle('active', lang === 'cs');
+            
+            // Update all elements with IDs
+            Object.keys(translations[lang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update placeholders
+            const newsletterInput = document.querySelector('.newsletter-input');
+            if (newsletterInput) {
+                newsletterInput.placeholder = lang === 'uk' ? 'Ваш email' : lang === 'en' ? 'Your email' : 'Váš email';
+            }
+        }
+        
+        // Function to update navigation links with basePath
+        function updateNavigationLinks() {
+            const navLinks = document.querySelectorAll('.nav-link, .footer-link a, .cta-btn');
+            navLinks.forEach(link => {
+                const originalHref = link.getAttribute('href');
+                if (originalHref && !originalHref.startsWith('http') && !originalHref.startsWith('#')) {
+                    if (basePath && originalHref.startsWith('./')) {
+                        link.setAttribute('href', basePath + '/' + originalHref.substring(2));
+                    }
+                }
+            });
+        }
+        
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would normally send the email to your server
+            alert(currentLang === 'uk' ? 'Підписка оформлена!' : currentLang === 'en' ? 'Subscription confirmed!' : 'Odběr potvrzen!');
+        });
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+            updateNavigationLinks();
+        });
+    </script>
+</body>
+</html>

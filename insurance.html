@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlogy - Для страхових та лізингових компаній</title>
+    <meta name="description" content="Інтелектуальна діагностика автомобілів для страхових та лізингових компаній. Зменшіть ризики, прискорте обробку страхових випадків та покращіть оцінку стану автомобілів.">
+    <meta name="keywords" content="страхова діагностика, автострахування, лізинг, оцінка автомобіля, штучний інтелект">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #5eead4;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-800: #1f2937;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            min-height: 100vh;
+            color: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .header-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-container {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-link {
+            padding: 8px 15px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            background: rgba(79, 70, 229, 0.2);
+            border: 1px solid rgba(94, 234, 212, 0.3);
+        }
+        
+        .nav-link i {
+            color: var(--secondary);
+        }
+        
+        .language-selector {
+            display: flex;
+            gap: 5px;
+            margin-left: 20px;
+        }
+        
+        .lang-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-300);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .lang-btn.active {
+            background: rgba(79, 70, 229, 0.2);
+            border: 1px solid rgba(94, 234, 212, 0.3);
+            color: white;
+        }
+
+        .car-logo {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #4f46e5, #5eead4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(94, 234, 212, 0.2);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--gray-300);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .case-studies {
+            margin-top: 50px;
+        }
+
+        .case-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .case-tab {
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .case-tab:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .case-tab.active {
+            background: rgba(79, 70, 229, 0.2);
+            border: 1px solid rgba(94, 234, 212, 0.3);
+        }
+
+        .case-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .case-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .case-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .case-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .case-description {
+            font-size: 1rem;
+            color: var(--gray-300);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray-300);
+        }
+
+        .benefits-list {
+            margin: 30px 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .benefit-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .benefit-content {
+            flex: 1;
+        }
+
+        .benefit-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .benefit-desc {
+            font-size: 1rem;
+            color: var(--gray-300);
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(94, 234, 212, 0.2));
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+            border: 1px solid rgba(94, 234, 212, 0.3);
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--gray-300);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .cta-btn i {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-container">
+                <div class="logo-container">
+                    <div class="car-logo"><i class="fas fa-car"></i></div>
+                    <h1 class="logo-text">Carlogy</h1>
+                </div>
+                <div class="nav-container">
+                    <a href="./index.html" class="nav-link" id="client-link">
+                        <i class="fas fa-car"></i>
+                        <span>Для водіїв</span>
+                    </a>
+                    <a href="./business.html" class="nav-link" id="business-link">
+                        <i class="fas fa-tools"></i>
+                        <span>Для бізнесу</span>
+                    </a>
+                    <a href="./insurance.html" class="nav-link active" id="insurance-link">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Для страхових</span>
+                    </a>
+                    <a href="./about.html" class="nav-link" id="about-link">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Про нас</span>
+                    </a>
+                    <a href="./contacts.html" class="nav-link" id="contacts-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Контакти</span>
+                    </a>
+                    <div class="language-selector">
+                        <button class="lang-btn" id="uk-btn" onclick="setLanguage('uk')">UK</button>
+                        <button class="lang-btn" id="en-btn" onclick="setLanguage('en')">EN</button>
+                        <button class="lang-btn" id="cs-btn" onclick="setLanguage('cs')">CS</button>
+                    </div>
+                </div>
+            </div>
+            <p class="tagline" id="tagline">Інтелектуальна діагностика для страхових компаній</p>
+        </header>
+
+        <main>
+            <h2 class="section-title" id="main-title">Рішення для страхових компаній</h2>
+            <p class="section-subtitle" id="main-subtitle">Оптимізуйте процеси страхування та оцінки автомобілів за допомогою штучного інтелекту. Наші рішення допоможуть вам скоротити витрати, прискорити обробку заявок та покращити точність оцінки.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-1-value">60%</div>
+                    <div class="stat-label" id="stat-1-label">Скорочення часу оцінки</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-2-value">40%</div>
+                    <div class="stat-label" id="stat-2-label">Зменшення помилок</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-3-value">30%</div>
+                    <div class="stat-label" id="stat-3-label">Економія витрат</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-4-value">95%</div>
+                    <div class="stat-label" id="stat-4-label">Точність діагностики</div>
+                </div>
+            </div>
+            
+            <div class="benefits-list">
+                <h3 class="section-title" id="benefits-title">Переваги для страхових компаній</h3>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="benefit-content">
+                        <h4 class="benefit-title" id="benefit-1-title">Швидка оцінка збитків</h4>
+                        <p class="benefit-desc" id="benefit-1-desc">Наша система дозволяє оцінити збитки автомобіля за лічені хвилини. Клієнт може сфотографувати пошкодження, а ШІ миттєво надасть оцінку вартості ремонту.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-robot"></i></div>
+                    <div class="benefit-content">
+                        <h4 class="benefit-title" id="benefit-2-title">Автоматизація оцінки</h4>
+                        <p class="benefit-desc" id="benefit-2-desc">Автоматична оцінка стану автомобіля перед страхуванням або під час обробки страхових випадків. Зменшення потреби у виїзді експертів на місце події.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="benefit-content">
+                        <h4 class="benefit-title" id="benefit-3-title">Точніше ціноутворення</h4>
+                        <p class="benefit-desc" id="benefit-3-desc">Аналіз історії автомобіля та його технічного стану дозволяє точніше розрахувати вартість страхування та ризики для кожного окремого клієнта.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="benefit-content">
+                        <h4 class="benefit-title" id="benefit-4-title">Виявлення шахрайства</h4>
+                        <p class="benefit-desc" id="benefit-4-desc">Система автоматично виявляє підозрілі страхові випадки, аналізуючи фото та відео пошкоджень, історію автомобіля та інші дані.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-database"></i></div>
+                    <div class="benefit-content">
+                        <h4 class="benefit-title" id="benefit-5-title">Історичні дані і аналітика</h4>
+                        <p class="benefit-desc" id="benefit-5-desc">Доступ до великої бази даних автомобілів, їхніх типових несправностей та вартості ремонту. Аналітика для прогнозування майбутніх ризиків.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="case-studies">
+                <h3 class="section-title" id="cases-title">Історії успіху</h3>
+                
+                <div class="case-tabs">
+                    <div class="case-tab active" data-case="case1" id="case-tab-1">Велика страхова компанія</div>
+                    <div class="case-tab" data-case="case2" id="case-tab-2">Лізингова компанія</div>
+                    <div class="case-tab" data-case="case3" id="case-tab-3">Регіональний страховик</div>
+                </div>
+                
+                <div class="case-content active" id="case1">
+                    <div class="case-card">
+                        <h4 class="case-title" id="case-1-title">Як "Європейське Страхування" скоротило час обробки заявок на 60%</h4>
+                        <p class="case-description" id="case-1-desc">Після впровадження системи Carlogy, одна з найбільших страхових компаній Європи змогла скоротити час обробки страхових випадків з 3-5 днів до менш ніж 24 годин. Клієнти тепер можуть отримати оцінку збитків та підтвердження виплати набагато швидше.</p>
+                        <p class="case-description" id="case-1-desc-2">Компанія також відзначила зменшення кількості випадків шахрайства на 35% завдяки автоматичному аналізу пошкоджень та виявленню невідповідностей.</p>
+                    </div>
+                </div>
+                
+                <div class="case-content" id="case2">
+                    <div class="case-card">
+                        <h4 class="case-title" id="case-2-title">Лізингова компанія "АвтоФлот" оптимізувала процес повернення автомобілів</h4>
+                        <p class="case-description" id="case-2-desc">Компанія "АвтоФлот", яка спеціалізується на лізингу автомобілів для бізнесу, впровадила систему Carlogy для оцінки стану автомобілів при їх поверненні після закінчення строку лізингу.</p>
+                        <p class="case-description" id="case-2-desc-2">Це дозволило скоротити час оцінки одного автомобіля з 2 годин до 15 хвилин та зменшити кількість спорів з клієнтами щодо вартості ремонту на 40%.</p>
+                    </div>
+                </div>
+                
+                <div class="case-content" id="case3">
+                    <div class="case-card">
+                        <h4 class="case-title" id="case-3-title">Регіональна страхова компанія "Захід-Авто" збільшила прибуток на 25%</h4>
+                        <p class="case-description" id="case-3-desc">Невелика регіональна страхова компанія "Захід-Авто" змогла конкурувати з великими гравцями ринку завдяки впровадженню технології Carlogy.</p>
+                        <p class="case-description" id="case-3-desc-2">Автоматизація процесів дозволила скоротити штат оцінювачів, зменшити витрати на виїзди експертів та підвищити швидкість обслуговування клієнтів. В результаті, за перший рік використання системи, прибуток компанії зріс на 25%.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2 class="cta-title" id="cta-title">Готові оптимізувати процеси вашої страхової компанії?</h2>
+                <p class="cta-subtitle" id="cta-subtitle">Зв'яжіться з нами сьогодні, щоб дізнатися більше про наші рішення для страхового бізнесу.</p>
+                <button class="cta-btn"><i class="fas fa-envelope"></i> <span id="cta-btn-text">Зв'язатися з нами</span></button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Current language
+        let currentLang = localStorage.getItem('carlogy-lang') || 'uk';
+        
+        // GitHub Pages base path
+        var basePath = '';
+
+        // Detect if running on GitHub Pages and get the repository name
+        (function() {
+            var ghPagesRegex = /^https?:\/\/([^\.]+)\.github\.io\/([^\/]+)/;
+            var match = window.location.href.match(ghPagesRegex);
+            if (match) {
+                // Running on GitHub Pages, match[2] is the repository name
+                basePath = '/' + match[2];
+                console.log('Running on GitHub Pages with base path:', basePath);
+            } else {
+                console.log('Not running on GitHub Pages, using empty base path');
+            }
+        })();
+        
+        // Function to set language
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('carlogy-lang', lang);
+            
+            // Update active state for language buttons
+            document.getElementById('uk-btn').classList.toggle('active', lang === 'uk');
+            document.getElementById('en-btn').classList.toggle('active', lang === 'en');
+            document.getElementById('cs-btn').classList.toggle('active', lang === 'cs');
+            
+            // Update text content based on language
+            const translations = {
+                uk: {
+                    'tagline': 'Інтелектуальна діагностика для страхових компаній',
+                    'client-link': 'Для водіїв',
+                    'business-link': 'Для бізнесу',
+                    'insurance-link': 'Для страхових',
+                    'main-title': 'Рішення для страхових компаній',
+                    'main-subtitle': 'Оптимізуйте процеси страхування та оцінки автомобілів за допомогою штучного інтелекту. Наші рішення допоможуть вам скоротити витрати, прискорити обробку заявок та покращити точність оцінки.',
+                    'stat-1-value': '60%',
+                    'stat-1-label': 'Скорочення часу оцінки',
+                    'stat-2-value': '40%',
+                    'stat-2-label': 'Зменшення помилок',
+                    'stat-3-value': '30%',
+                    'stat-3-label': 'Економія витрат',
+                    'stat-4-value': '95%',
+                    'stat-4-label': 'Точність діагностики',
+                    'benefits-title': 'Переваги для страхових компаній',
+                    'benefit-1-title': 'Швидка оцінка збитків',
+                    'benefit-1-desc': 'Наша система дозволяє оцінити збитки автомобіля за лічені хвилини. Клієнт може сфотографувати пошкодження, а ШІ миттєво надасть оцінку вартості ремонту.',
+                    'benefit-2-title': 'Автоматизація оцінки',
+                    'benefit-2-desc': 'Автоматична оцінка стану автомобіля перед страхуванням або під час обробки страхових випадків. Зменшення потреби у виїзді експертів на місце події.',
+                    'benefit-3-title': 'Точніше ціноутворення',
+                    'benefit-3-desc': 'Аналіз історії автомобіля та його технічного стану дозволяє точніше розрахувати вартість страхування та ризики для кожного окремого клієнта.',
+                    'benefit-4-title': 'Виявлення шахрайства',
+                    'benefit-4-desc': 'Система автоматично виявляє підозрілі страхові випадки, аналізуючи фото та відео пошкоджень, історію автомобіля та інші дані.',
+                    'benefit-5-title': 'Історичні дані і аналітика',
+                    'benefit-5-desc': 'Доступ до великої бази даних автомобілів, їхніх типових несправностей та вартості ремонту. Аналітика для прогнозування майбутніх ризиків.',
+                    'cases-title': 'Історії успіху',
+                    'case-tab-1': 'Велика страхова компанія',
+                    'case-tab-2': 'Лізингова компанія',
+                    'case-tab-3': 'Регіональний страховик',
+                    'case-1-title': 'Як "Європейське Страхування" скоротило час обробки заявок на 60%',
+                    'case-1-desc': 'Після впровадження системи Carlogy, одна з найбільших страхових компаній Європи змогла скоротити час обробки страхових випадків з 3-5 днів до менш ніж 24 годин. Клієнти тепер можуть отримати оцінку збитків та підтвердження виплати набагато швидше.',
+                    'case-1-desc-2': 'Компанія також відзначила зменшення кількості випадків шахрайства на 35% завдяки автоматичному аналізу пошкоджень та виявленню невідповідностей.',
+                    'case-2-title': 'Лізингова компанія "АвтоФлот" оптимізувала процес повернення автомобілів',
+                    'case-2-desc': 'Компанія "АвтоФлот", яка спеціалізується на лізингу автомобілів для бізнесу, впровадила систему Carlogy для оцінки стану автомобілів при їх поверненні після закінчення строку лізингу.',
+                    'case-2-desc-2': 'Це дозволило скоротити час оцінки одного автомобіля з 2 годин до 15 хвилин та зменшити кількість спорів з клієнтами щодо вартості ремонту на 40%.',
+                    'case-3-title': 'Регіональна страхова компанія "Захід-Авто" збільшила прибуток на 25%',
+                    'case-3-desc': 'Невелика регіональна страхова компанія "Захід-Авто" змогла конкурувати з великими гравцями ринку завдяки впровадженню технології Carlogy.',
+                    'case-3-desc-2': 'Автоматизація процесів дозволила скоротити штат оцінювачів, зменшити витрати на виїзди експертів та підвищити швидкість обслуговування клієнтів. В результаті, за перший рік використання системи, прибуток компанії зріс на 25%.',
+                    'cta-title': 'Готові оптимізувати процеси вашої страхової компанії?',
+                    'cta-subtitle': 'Зв\'яжіться з нами сьогодні, щоб дізнатися більше про наші рішення для страхового бізнесу.',
+                    'cta-btn-text': 'Зв\'язатися з нами'
+                },
+                en: {
+                    'tagline': 'Intelligent diagnostics for insurance companies',
+                    'client-link': 'For Drivers',
+                    'business-link': 'For Business',
+                    'insurance-link': 'For Insurance',
+                    'main-title': 'Solutions for Insurance Companies',
+                    'main-subtitle': 'Optimize vehicle insurance and assessment processes with artificial intelligence. Our solutions will help you reduce costs, speed up claims processing, and improve assessment accuracy.',
+                    'stat-1-value': '60%',
+                    'stat-1-label': 'Reduced assessment time',
+                    'stat-2-value': '40%',
+                    'stat-2-label': 'Fewer errors',
+                    'stat-3-value': '30%',
+                    'stat-3-label': 'Cost savings',
+                    'stat-4-value': '95%',
+                    'stat-4-label': 'Diagnostic accuracy',
+                    'benefits-title': 'Benefits for Insurance Companies',
+                    'benefit-1-title': 'Fast Damage Assessment',
+                    'benefit-1-desc': 'Our system can assess vehicle damage in minutes. The client can photograph the damage, and AI instantly provides a repair cost estimate.',
+                    'benefit-2-title': 'Automated Assessment',
+                    'benefit-2-desc': 'Automatic assessment of the vehicle condition before insurance or during claims processing. Reduced need for experts to visit the scene.',
+                    'benefit-3-title': 'More Accurate Pricing',
+                    'benefit-3-desc': 'Analysis of the vehicle history and its technical condition allows for more accurate calculation of insurance costs and risks for each individual client.',
+                    'benefit-4-title': 'Fraud Detection',
+                    'benefit-4-desc': 'The system automatically detects suspicious insurance claims by analyzing photos and videos of damage, vehicle history, and other data.',
+                    'benefit-5-title': 'Historical Data & Analytics',
+                    'benefit-5-desc': 'Access to a large database of vehicles, their typical malfunctions, and repair costs. Analytics for future risk prediction.',
+                    'cases-title': 'Success Stories',
+                    'case-tab-1': 'Large Insurance Company',
+                    'case-tab-2': 'Leasing Company',
+                    'case-tab-3': 'Regional Insurer',
+                    'case-1-title': 'How "European Insurance" Reduced Claims Processing Time by 60%',
+                    'case-1-desc': 'After implementing the Carlogy system, one of Europe\'s largest insurance companies was able to reduce insurance claims processing time from 3-5 days to less than 24 hours. Clients can now receive damage assessments and payment confirmations much faster.',
+                    'case-1-desc-2': 'The company also noted a 35% reduction in fraud cases thanks to automatic damage analysis and discrepancy detection.',
+                    'case-2-title': 'Leasing Company "AutoFleet" Optimized Vehicle Return Process',
+                    'case-2-desc': 'AutoFleet, a company specializing in business vehicle leasing, implemented the Carlogy system to assess the condition of vehicles upon return after the lease term.',
+                    'case-2-desc-2': 'This reduced the assessment time per vehicle from 2 hours to 15 minutes and decreased disputes with clients about repair costs by 40%.',
+                    'case-3-title': 'Regional Insurance Company "West-Auto" Increased Profit by 25%',
+                    'case-3-desc': 'Small regional insurance company "West-Auto" was able to compete with major market players by implementing Carlogy technology.',
+                    'case-3-desc-2': 'Process automation allowed for a reduction in assessor staff, decreased costs for expert visits, and improved customer service speed. As a result, the company\'s profit increased by 25% in the first year of using the system.',
+                    'cta-title': 'Ready to optimize your insurance company processes?',
+                    'cta-subtitle': 'Contact us today to learn more about our solutions for the insurance business.',
+                    'cta-btn-text': 'Contact Us'
+                },
+                cs: {
+                    'tagline': 'Inteligentní diagnostika pro pojišťovny',
+                    'client-link': 'Pro řidiče',
+                    'business-link': 'Pro firmy',
+                    'insurance-link': 'Pro pojišťovny',
+                    'main-title': 'Řešení pro pojišťovny',
+                    'main-subtitle': 'Optimalizujte procesy pojištění a oceňování vozidel pomocí umělé inteligence. Naše řešení vám pomohou snížit náklady, urychlit zpracování nároků a zlepšit přesnost oceňování.',
+                    'stat-1-value': '60%',
+                    'stat-1-label': 'Zkrácení doby oceňování',
+                    'stat-2-value': '40%',
+                    'stat-2-label': 'Snížení chyb',
+                    'stat-3-value': '30%',
+                    'stat-3-label': 'Úspora nákladů',
+                    'stat-4-value': '95%',
+                    'stat-4-label': 'Přesnost diagnostiky',
+                    'benefits-title': 'Výhody pro pojišťovny',
+                    'benefit-1-title': 'Rychlé ocenění škod',
+                    'benefit-1-desc': 'Náš systém umožňuje ocenit škody na vozidle během několika minut. Klient může vyfotografovat poškození a umělá inteligence okamžitě poskytne odhad nákladů na opravu.',
+                    'benefit-2-title': 'Automatizace oceňování',
+                    'benefit-2-desc': 'Automatické posouzení stavu vozidla před pojištěním nebo během zpracování pojistných událostí. Snížení potřeby výjezdů odborníků na místo události.',
+                    'benefit-3-title': 'Přesnější stanovení cen',
+                    'benefit-3-desc': 'Analýza historie vozidla a jeho technického stavu umožňuje přesněji vypočítat náklady na pojištění a rizika pro jednotlivé klienty.',
+                    'benefit-4-title': 'Odhalování podvodů',
+                    'benefit-4-desc': 'Systém automaticky detekuje podezřelé pojistné události analýzou fotografií a videí poškození, historie vozidla a dalších údajů.',
+                    'benefit-5-title': 'Historická data a analytika',
+                    'benefit-5-desc': 'Přístup k rozsáhlé databázi vozidel, jejich typických poruch a nákladů na opravy. Analytika pro předpověď budoucích rizik.',
+                    'cases-title': 'Úspěšné případy',
+                    'case-tab-1': 'Velká pojišťovna',
+                    'case-tab-2': 'Leasingová společnost',
+                    'case-tab-3': 'Regionální pojistitel',
+                    'case-1-title': 'Jak "Evropské pojištění" zkrátilo dobu zpracování nároků o 60%',
+                    'case-1-desc': 'Po implementaci systému Carlogy dokázala jedna z největších evropských pojišťoven zkrátit dobu zpracování pojistných událostí z 3-5 dnů na méně než 24 hodin. Klienti nyní mohou získat ocenění škod a potvrzení platby mnohem rychleji.',
+                    'case-1-desc-2': 'Společnost také zaznamenala 35% snížení případů podvodů díky automatické analýze poškození a detekci nesrovnalostí.',
+                    'case-2-title': 'Leasingová společnost "AutoFleet" optimalizovala proces vrácení vozidel',
+                    'case-2-desc': 'Společnost "AutoFleet", která se specializuje na leasing vozidel pro firmy, implementovala systém Carlogy pro posouzení stavu vozidel při jejich vrácení po skončení leasingu.',
+                    'case-2-desc-2': 'To zkrátilo dobu posouzení jednoho vozidla z 2 hodin na 15 minut a snížilo spory s klienty o nákladech na opravy o 40%.',
+                    'case-3-title': 'Regionální pojišťovna "West-Auto" zvýšila zisk o 25%',
+                    'case-3-desc': 'Malá regionální pojišťovna "West-Auto" dokázala konkurovat velkým hráčům na trhu díky implementaci technologie Carlogy.',
+                    'case-3-desc-2': 'Automatizace procesů umožnila snížit počet odhadců, snížit náklady na výjezdy expertů a zlepšit rychlost obsluhy zákazníků. Výsledkem bylo zvýšení zisku společnosti o 25% v prvním roce používání systému.',
+                    'cta-title': 'Jste připraveni optimalizovat procesy vaší pojišťovny?',
+                    'cta-subtitle': 'Kontaktujte nás ještě dnes, abyste se dozvěděli více o našich řešeních pro pojišťovací podnikání.',
+                    'cta-btn-text': 'Kontaktujte nás'
+                }
+            };
+            
+            // Update all elements with IDs
+            Object.keys(translations[lang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+        
+        // Function to update navigation links with basePath
+        function updateNavigationLinks() {
+            // Update the href attributes of the navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                const originalHref = link.getAttribute('href');
+                // Only modify relative URLs, not external URLs
+                if (originalHref && !originalHref.startsWith('http')) {
+                    // If we have a basePath, add it to the beginning
+                    if (basePath && originalHref.startsWith('./')) {
+                        link.setAttribute('href', basePath + '/' + originalHref.substring(2));
+                    }
+                }
+            });
+        }
+        
+        // Initialize tabs functionality
+        function initTabs() {
+            const tabs = document.querySelectorAll('.case-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs and contents
+                    document.querySelectorAll('.case-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.case-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    const caseId = this.getAttribute('data-case');
+                    document.getElementById(caseId).classList.add('active');
+                });
+            });
+        }
+        
+        // Initialize everything on load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+            updateNavigationLinks();
+            initTabs();
+        });
+    </script>
+</body>
+</html>

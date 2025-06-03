@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти - Carlogy</title>
+    <meta name="description" content="Зв'яжіться з командою Carlogy. Отримайте консультацію щодо інтелектуальної діагностики автомобілів за допомогою штучного інтелекту.">
+    <meta name="keywords" content="контакти, Carlogy, діагностика автомобілів, штучний інтелект, зв'язок">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #5eead4;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-800: #1f2937;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            min-height: 100vh;
+            color: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .header-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-container {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-link {
+            padding: 8px 15px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            background: rgba(79, 70, 229, 0.2);
+            border: 1px solid rgba(94, 234, 212, 0.3);
+        }
+        
+        .nav-link i {
+            color: var(--secondary);
+        }
+        
+        .language-selector {
+            display: flex;
+            gap: 5px;
+            margin-left: 20px;
+        }
+        
+        .lang-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-300);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .lang-btn.active {
+            background: rgba(79, 70, 229, 0.2);
+            border: 1px solid rgba(94, 234, 212, 0.3);
+            color: white;
+        }
+
+        .car-logo {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #4f46e5, #5eead4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(94, 234, 212, 0.2);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #4f46e5, #5eead4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-300);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            gap: 15px;
+        }
+
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(79, 70, 229, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .contact-item-content {
+            flex: 1;
+        }
+
+        .contact-item-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .contact-item-text {
+            font-size: 1rem;
+            color: var(--gray-300);
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(94, 234, 212, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-input::placeholder {
+            color: var(--gray-400);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            appearance: none;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .office-map {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            border: 2px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .contact-title {
+                font-size: 2.5rem;
+            }
+            
+            .contact-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header fade-in-up">
+            <div class="header-container">
+                <div class="logo-container">
+                    <div class="car-logo"><i class="fas fa-car"></i></div>
+                    <h1 class="logo-text">Carlogy</h1>
+                </div>
+                <div class="nav-container">
+                    <a href="./index.html" class="nav-link" id="client-link">
+                        <i class="fas fa-car"></i>
+                        <span>Для водіїв</span>
+                    </a>
+                    <a href="./business.html" class="nav-link" id="business-link">
+                        <i class="fas fa-tools"></i>
+                        <span>Для бізнесу</span>
+                    </a>
+                    <a href="./insurance.html" class="nav-link" id="insurance-link">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Для страхових</span>
+                    </a>
+                    <a href="./contacts.html" class="nav-link active" id="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Контакти</span>
+                    </a>
+                    <div class="language-selector">
+                        <button class="lang-btn" id="uk-btn" onclick="setLanguage('uk')">UK</button>
+                        <button class="lang-btn" id="en-btn" onclick="setLanguage('en')">EN</button>
+                        <button class="lang-btn" id="cs-btn" onclick="setLanguage('cs')">CS</button>
+                    </div>
+                </div>
+            </div>
+            <p class="tagline" id="tagline">Зв'яжіться з нами для отримання консультації</p>
+        </header>
+
+        <div class="contact-hero fade-in-up delay-200">
+            <h1 class="contact-title" id="contact-title">Зв'яжіться з нами</h1>
+            <p class="contact-subtitle" id="contact-subtitle">Готові відповісти на ваші питання та допомогти з впровадженням інтелектуальної діагностики автомобілів</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info fade-in-left delay-300">
+                <h2 class="section-title" id="contact-info-title">Контактна інформація</h2>
+                
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-item-content">
+                        <h3 class="contact-item-title" id="email-title">Електронна пошта</h3>
+                        <p class="contact-item-text">info@carlogy.ai</p>
+                        <p class="contact-item-text">support@carlogy.ai</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-item-content">
+                        <h3 class="contact-item-title" id="phone-title">Телефон</h3>
+                        <p class="contact-item-text">+380 44 123 45 67</p>
+                        <p class="contact-item-text">+380 50 123 45 67</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-item-content">
+                        <h3 class="contact-item-title" id="address-title">Адреса офісу</h3>
+                        <p class="contact-item-text" id="address-text">вул. Хрещатик, 25<br>м. Київ, 01001<br>Україна</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-item-content">
+                        <h3 class="contact-item-title" id="hours-title">Години роботи</h3>
+                        <p class="contact-item-text" id="hours-text">Пн-Пт: 9:00 - 18:00<br>Сб: 10:00 - 16:00<br>Нд: Вихідний</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form fade-in-right delay-400">
+                <h2 class="section-title" id="form-title">Напишіть нам</h2>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label" id="name-label">Ім'я *</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Ваше ім'я" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label" id="email-label">Email *</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="ваш@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company" class="form-label" id="company-label">Компанія</label>
+                        <input type="text" id="company" name="company" class="form-input" placeholder="Назва вашої компанії">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" class="form-label" id="subject-label">Тема звернення</label>
+                        <select id="subject" name="subject" class="form-input form-select">
+                            <option value="" id="subject-default">Оберіть тему</option>
+                            <option value="general" id="subject-general">Загальні питання</option>
+                            <option value="business" id="subject-business">Рішення для бізнесу</option>
+                            <option value="insurance" id="subject-insurance">Рішення для страхових</option>
+                            <option value="partnership" id="subject-partnership">Партнерство</option>
+                            <option value="support" id="subject-support">Технічна підтримка</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label" id="message-label">Повідомлення *</label>
+                        <textarea id="message" name="message" class="form-input form-textarea" placeholder="Опишіть ваше питання або запит..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span id="submit-text">Надіслати повідомлення</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="office-map fade-in-up delay-500">
+            <h2 class="section-title" id="map-title">Наш офіс</h2>
+            <div class="map-placeholder">
+                <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: var(--secondary); margin-bottom: 15px;"></i>
+                <div>
+                    <p id="map-placeholder-text">Інтерактивна карта офісу</p>
+                    <p style="font-size: 0.9rem; color: var(--gray-400); margin-top: 5px;" id="map-placeholder-subtext">м. Київ, вул. Хрещатик, 25</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer fade-in-up delay-600">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <i class="fas fa-car footer-logo-icon"></i>
+                    <span class="footer-logo-text">Carlogy</span>
+                </div>
+                <p class="footer-description" id="footer-description">
+                    Інноваційна платформа для діагностики автомобілів з використанням штучного інтелекту. Ми робимо діагностику швидшою, точнішою та доступнішою для всіх.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title" id="footer-services">Послуги</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="./index.html"><i class="fas fa-car"></i><span id="footer-drivers">Для водіїв</span></a></li>
+                    <li class="footer-link"><a href="./business.html"><i class="fas fa-tools"></i><span id="footer-business">Для СТО</span></a></li>
+                    <li class="footer-link"><a href="./insurance.html"><i class="fas fa-shield-alt"></i><span id="footer-insurance">Для страхових</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title" id="footer-company">Компанія</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="./about.html"><i class="fas fa-info-circle"></i><span id="footer-about">Про нас</span></a></li>
+                    <li class="footer-link"><a href="./contacts.html"><i class="fas fa-envelope"></i><span id="footer-contacts">Контакти</span></a></li>
+                    <li class="footer-link"><a href="#"><i class="fas fa-users"></i><span id="footer-careers">Кар'єра</span></a></li>
+                    <li class="footer-link"><a href="#"><i class="fas fa-newspaper"></i><span id="footer-news">Новини</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title" id="footer-newsletter">Підписка на новини</h3>
+                <p class="footer-description" id="footer-newsletter-text">
+                    Отримуйте останні новини та оновлення про нові функції Carlogy.
+                </p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Ваш email" id="newsletter-placeholder">
+                    <button type="submit" class="newsletter-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 <a href="/">Carlogy</a>. <span id="footer-rights">Всі права захищені.</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Current language
+        let currentLang = localStorage.getItem('carlogy-lang') || 'uk';
+        
+        // GitHub Pages base path
+        var basePath = '';
+
+        // Detect if running on GitHub Pages and get the repository name
+        (function() {
+            var ghPagesRegex = /^https?:\/\/([^\.]+)\.github\.io\/([^\/]+)/;
+            var match = window.location.href.match(ghPagesRegex);
+            if (match) {
+                basePath = '/' + match[2];
+                console.log('Running on GitHub Pages with base path:', basePath);
+            } else {
+                console.log('Not running on GitHub Pages, using empty base path');
+            }
+        })();
+        
+        // Translations
+        const translations = {
+            uk: {
+                'tagline': 'Зв\'яжіться з нами для отримання консультації',
+                'client-link': 'Для водіїв',
+                'business-link': 'Для бізнесу', 
+                'insurance-link': 'Для страхових',
+                'contact-link': 'Контакти',
+                'contact-title': 'Зв\'яжіться з нами',
+                'contact-subtitle': 'Готові відповісти на ваші питання та допомогти з впровадженням інтелектуальної діагностики автомобілів',
+                'contact-info-title': 'Контактна інформація',
+                'email-title': 'Електронна пошта',
+                'phone-title': 'Телефон',
+                'address-title': 'Адреса офісу',
+                'address-text': 'вул. Хрещатик, 25<br>м. Київ, 01001<br>Україна',
+                'hours-title': 'Години роботи',
+                'hours-text': 'Пн-Пт: 9:00 - 18:00<br>Сб: 10:00 - 16:00<br>Нд: Вихідний',
+                'form-title': 'Напишіть нам',
+                'name-label': 'Ім\'я *',
+                'email-label': 'Email *',
+                'company-label': 'Компанія',
+                'subject-label': 'Тема звернення',
+                'subject-default': 'Оберіть тему',
+                'subject-general': 'Загальні питання',
+                'subject-business': 'Рішення для бізнесу',
+                'subject-insurance': 'Рішення для страхових',
+                'subject-partnership': 'Партнерство',
+                'subject-support': 'Технічна підтримка',
+                'message-label': 'Повідомлення *',
+                'submit-text': 'Надіслати повідомлення',
+                'map-title': 'Наш офіс',
+                'map-placeholder-text': 'Інтерактивна карта офісу',
+                'map-placeholder-subtext': 'м. Київ, вул. Хрещатик, 25',
+                'footer-description': 'Інноваційна платформа для діагностики автомобілів з використанням штучного інтелекту. Ми робимо діагностику швидшою, точнішою та доступнішою для всіх.',
+                'footer-services': 'Послуги',
+                'footer-drivers': 'Для водіїв',
+                'footer-business': 'Для СТО',
+                'footer-insurance': 'Для страхових',
+                'footer-company': 'Компанія',
+                'footer-about': 'Про нас',
+                'footer-contacts': 'Контакти',
+                'footer-careers': 'Кар\'єра',
+                'footer-news': 'Новини',
+                'footer-newsletter': 'Підписка на новини',
+                'footer-newsletter-text': 'Отримуйте останні новини та оновлення про нові функції Carlogy.',
+                'newsletter-placeholder': 'Ваш email',
+                'footer-rights': 'Всі права захищені.'
+            },
+            en: {
+                'tagline': 'Contact us for consultation',
+                'client-link': 'For Drivers',
+                'business-link': 'For Business',
+                'insurance-link': 'For Insurance',
+                'contact-link': 'Contact',
+                'contact-title': 'Contact Us',
+                'contact-subtitle': 'Ready to answer your questions and help implement intelligent vehicle diagnostics',
+                'contact-info-title': 'Contact Information',
+                'email-title': 'Email',
+                'phone-title': 'Phone',
+                'address-title': 'Office Address',
+                'address-text': '25 Khreshchatyk St.<br>Kyiv, 01001<br>Ukraine',
+                'hours-title': 'Working Hours',
+                'hours-text': 'Mon-Fri: 9:00 - 18:00<br>Sat: 10:00 - 16:00<br>Sun: Closed',
+                'form-title': 'Write to Us',
+                'name-label': 'Name *',
+                'email-label': 'Email *',
+                'company-label': 'Company',
+                'subject-label': 'Subject',
+                'subject-default': 'Select subject',
+                'subject-general': 'General questions',
+                'subject-business': 'Business solutions',
+                'subject-insurance': 'Insurance solutions',
+                'subject-partnership': 'Partnership',
+                'subject-support': 'Technical support',
+                'message-label': 'Message *',
+                'submit-text': 'Send Message',
+                'map-title': 'Our Office',
+                'map-placeholder-text': 'Interactive office map',
+                'map-placeholder-subtext': 'Kyiv, 25 Khreshchatyk St.',
+                'footer-description': 'Innovative platform for vehicle diagnostics using artificial intelligence. We make diagnostics faster, more accurate and accessible to everyone.',
+                'footer-services': 'Services',
+                'footer-drivers': 'For Drivers',
+                'footer-business': 'For Auto Service',
+                'footer-insurance': 'For Insurance',
+                'footer-company': 'Company',
+                'footer-about': 'About Us',
+                'footer-contacts': 'Contact',
+                'footer-careers': 'Careers',
+                'footer-news': 'News',
+                'footer-newsletter': 'Newsletter',
+                'footer-newsletter-text': 'Get the latest news and updates about new Carlogy features.',
+                'newsletter-placeholder': 'Your email',
+                'footer-rights': 'All rights reserved.'
+            },
+            cs: {
+                'tagline': 'Kontaktujte nás pro konzultaci',
+                'client-link': 'Pro řidiče',
+                'business-link': 'Pro firmy',
+                'insurance-link': 'Pro pojišťovny',
+                'contact-link': 'Kontakt',
+                'contact-title': 'Kontaktujte nás',
+                'contact-subtitle': 'Připraveni odpovědět na vaše otázky a pomoci s implementací inteligentní diagnostiky vozidel',
+                'contact-info-title': 'Kontaktní informace',
+                'email-title': 'Email',
+                'phone-title': 'Telefon',
+                'address-title': 'Adresa kanceláře',
+                'address-text': 'ul. Khreshchatyk, 25<br>Kyiv, 01001<br>Ukrajina',
+                'hours-title': 'Pracovní doba',
+                'hours-text': 'Po-Pá: 9:00 - 18:00<br>So: 10:00 - 16:00<br>Ne: Zavřeno',
+                'form-title': 'Napište nám',
+                'name-label': 'Jméno *',
+                'email-label': 'Email *',
+                'company-label': 'Společnost',
+                'subject-label': 'Předmět',
+                'subject-default': 'Vyberte předmět',
+                'subject-general': 'Obecné otázky',
+                'subject-business': 'Řešení pro firmy',
+                'subject-insurance': 'Řešení pro pojišťovny',
+                'subject-partnership': 'Partnerství',
+                'subject-support': 'Technická podpora',
+                'message-label': 'Zpráva *',
+                'submit-text': 'Odeslat zprávu',
+                'map-title': 'Naše kancelář',
+                'map-placeholder-text': 'Interaktivní mapa kanceláře',
+                'map-placeholder-subtext': 'Kyiv, ul. Khreshchatyk, 25',
+                'footer-description': 'Inovativní platforma pro diagnostiku vozidel pomocí umělé inteligence. Děláme diagnostiku rychlejší, přesnější a dostupnější pro všechny.',
+                'footer-services': 'Služby',
+                'footer-drivers': 'Pro řidiče',
+                'footer-business': 'Pro autoservisy',
+                'footer-insurance': 'Pro pojišťovny',
+                'footer-company': 'Společnost',
+                'footer-about': 'O nás',
+                'footer-contacts': 'Kontakt',
+                'footer-careers': 'Kariéra',
+                'footer-news': 'Novinky',
+                'footer-newsletter': 'Newsletter',
+                'footer-newsletter-text': 'Získejte nejnovější zprávy a aktualizace o nových funkcích Carlogy.',
+                'newsletter-placeholder': 'Váš email',
+                'footer-rights': 'Všechna práva vyhrazena.'
+            }
+        };
+        
+        // Function to set language
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('carlogy-lang', lang);
+            
+            // Update active state for language buttons
+            document.getElementById('uk-btn').classList.toggle('active', lang === 'uk');
+            document.getElementById('en-btn').classList.toggle('active', lang === 'en');
+            document.getElementById('cs-btn').classList.toggle('active', lang === 'cs');
+            
+            // Update all elements with IDs
+            Object.keys(translations[lang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    if (key.includes('address-text') || key.includes('hours-text')) {
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Update placeholders
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const companyInput = document.getElementById('company');
+            const messageInput = document.getElementById('message');
+            const newsletterInput = document.getElementById('newsletter-placeholder');
+            
+            if (nameInput) nameInput.placeholder = lang === 'uk' ? 'Ваше ім\'я' : lang === 'en' ? 'Your name' : 'Vaše jméno';
+            if (emailInput) emailInput.placeholder = lang === 'uk' ? 'ваш@email.com' : lang === 'en' ? 'your@email.com' : 'vas@email.com';
+            if (companyInput) companyInput.placeholder = lang === 'uk' ? 'Назва вашої компанії' : lang === 'en' ? 'Your company name' : 'Název vaší společnosti';
+            if (messageInput) messageInput.placeholder = lang === 'uk' ? 'Опишіть ваше питання або запит...' : lang === 'en' ? 'Describe your question or request...' : 'Popište svou otázku nebo požadavek...';
+        }
+        
+        // Function to update navigation links with basePath
+        function updateNavigationLinks() {
+            const navLinks = document.querySelectorAll('.nav-link, .footer-link a');
+            navLinks.forEach(link => {
+                const originalHref = link.getAttribute('href');
+                if (originalHref && !originalHref.startsWith('http') && !originalHref.startsWith('#')) {
+                    if (basePath && originalHref.startsWith('./')) {
+                        link.setAttribute('href', basePath + '/' + originalHref.substring(2));
+                    }
+                }
+            });
+        }
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would normally send the form data to your server
+            alert(currentLang === 'uk' ? 'Повідомлення надіслано!' : currentLang === 'en' ? 'Message sent!' : 'Zpráva odeslána!');
+        });
+        
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would normally send the email to your server
+            alert(currentLang === 'uk' ? 'Підписка оформлена!' : currentLang === 'en' ? 'Subscription confirmed!' : 'Odběr potvrzen!');
+        });
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+            updateNavigationLinks();
+        });
+    </script>
+</body>
+</html>
